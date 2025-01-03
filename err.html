@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Die Website ist nicht erreichbar</title>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.altKey && event.key.toLowerCase() === 'a') {
+                event.preventDefault();
+                window.open('about:internets', '_blank');
+            }
+        });
+
+        function toggleDetails() {
+            const details = document.getElementById('errorDetails');
+            const button = document.querySelector('.details');
+            if (details.style.display === 'none') {
+                details.style.display = 'block';
+                button.textContent = 'Details ausblenden';
+            } else {
+                details.style.display = 'none';
+                button.textContent = 'Details';
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #202124;
+            color: #e8eaed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .icon {
+            margin-bottom: 16px;
+            color: #9aa0a6;
+            width: 36px;
+            height: 44px;
+        }
+        .icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        h1 {
+            color: #e8eaed;
+            font-size: 20px;
+            font-weight: normal;
+            margin-bottom: 16px;
+        }
+
+        .error-details {
+            color: #9aa0a6;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .suggestions {
+            text-align: left;
+            color: #9aa0a6;
+            margin: 16px 0;
+            padding-left: 20px;
+        }
+
+        .suggestions li {
+            margin: 8px 0;
+        }
+
+        .error-code {
+            color: #9aa0a6;
+            font-size: 12px;
+            margin: 16px 0;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        button {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .reload {
+            background-color: #8ab4f8;
+            color: #202124;
+        }
+
+        .details {
+            background-color: transparent;
+            color: #8ab4f8;
+            border: 1px solid rgba(138, 180, 248, 0.5);
+        }
+
+        #errorDetails {
+            display: none;
+            text-align: left;
+            margin-top: 30px;
+            color: #9aa0a6;
+        }
+
+        .detail-section {
+            margin-bottom: 20px;
+        }
+
+        .detail-section h3 {
+            color: #e8eaed;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .detail-section p {
+            margin: 8px 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #9aa0a6;
+        }
+
+        a {
+            color: #8ab4f8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="1.5"/>
+                <path d="M14 2v6h6" stroke-width="1.5"/>
+                <line x1="8" y1="13" x2="16" y2="13" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="8" y1="17" x2="12" y2="17" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <h1>Die Website ist nicht erreichbar</h1>
+        <div class="error-details">
+            Die Server-IP-Adresse von <strong>vousjfiajajao0pa.de</strong> wurde nicht gefunden.
+        </div>
+        <div class="suggestions">
+            Versuche Folgendes:
+            <ul>
+                <li>Verbindung prüfen</li>
+                <li><a href="#">Proxy, Firewall und DNS-Konfiguration prüfen</a></li>
+                <li><a href="#">Windows-Netzwerkdiagnose ausführen</a></li>
+            </ul>
+        </div>
+        <div class="error-code">ERR_NAME_NOT_RESOLVED</div>
+        <div class="buttons">
+            <button class="reload">Neu laden</button>
+            <button class="details" onclick="toggleDetails()">Details</button>
+        </div>
+
+        <div id="errorDetails">
+            <div class="detail-section">
+                <h3>Bitte überprüfe deine Internetverbindung.</h3>
+                <p>Überprüfe alle Kabel und starte alle verwendeten Router, Modems und anderen Netzwerkgeräte neu.</p>
+            </div>
+
+            <div class="detail-section">
+                <h3>Überprüfe die DNS-Einstellungen.</h3>
+                <p>Wenn du weitere Informationen dazu benötigst, kann dir dein Netzwerkadministrator weiterhelfen.</p>
+            </div>
+
+            <div class="detail-section">
+                <h3>Deaktiviere die Netzwerkvorhersage.</h3>
+                <p>Öffne das Chrome-Menü > Einstellungen > Erweiterte Einstellungen anzeigen und deaktiviere "Vorhersagefunktion zum schnelleren Laden von Seiten verwenden ". Falls das Problem nicht dadurch verursacht wurde, empfehlen wir, diese Option für eine verbesserte Leistung wieder zu aktivieren.</p>
+            </div>
+
+            <div class="detail-section">
+                <h3>Erlaube Chrome in deinen Firewall- und Virenschutzeinstellungen den Zugriff auf das Netzwerk.</h3>
+                <p>Falls das Programm schon in der Liste mit erlaubtem Netzwerkzugriff eingetragen ist, entferne es aus der Liste und füge es noch einmal hinzu.</p>
+            </div>
+
+            <div class="detail-section">
+                <h3>Falls du einen Proxyserver verwendest...</h3>
+                <p>Vergewissere dich, dass der Proxyserver funktioniert. Überprüfe die Proxyeinstellungen oder wende dich an deinen Netzwerkadministrator. Falls du keinen Proxyserver verwenden möchtest, deaktiviere ihn wie folgt: Gehe zum Chrome-Menü > „Einstellungen" > „Erweiterte Einstellungen anzeigen" > „Proxy-Einstellungen ändern..." > „LAN-Einstellungen" und deaktiviere die Option „Proxyserver für LAN verwenden".</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
