@@ -26,100 +26,105 @@
     </script>
     <style>
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: rgb(32, 33, 36);
-            color: rgb(232, 234, 237);
+            color: rgb(154, 160, 166);
             margin: 0;
-            display: flex;
-            justify-content: center;
+            padding: 0;
             min-height: 100vh;
-            line-height: 20px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
         }
 
         .container {
+            margin-top: 140px;
             width: 100%;
-            max-width: 872px;
-            padding: 0 16px;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content-wrapper {
+            max-width: 600px;
+            width: 100%;
             text-align: center;
-            padding-top: 140px;
         }
 
         .icon {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            display: inline-block;
         }
 
         .icon svg {
             width: 36px;
             height: 36px;
-            stroke: rgb(154, 160, 166);
+            stroke: currentColor;
             fill: none;
             stroke-width: 1;
         }
 
         h1 {
-            color: rgb(154, 160, 166);
             font-size: 20px;
             font-weight: normal;
-            margin: 0 0 8px 0;
+            margin: 0 0 16px 0;
+            color: rgb(154, 160, 166);
+            line-height: 24px;
         }
 
         .error-details {
             font-size: 14px;
-            margin-bottom: 16px;
-            color: rgb(154, 160, 166);
+            line-height: 20px;
+            margin-bottom: 32px;
         }
 
-        .error-details strong {
+        strong {
             color: rgb(232, 234, 237);
             font-weight: normal;
         }
 
         .suggestions {
             font-size: 14px;
-            color: rgb(154, 160, 166);
-            margin: 0;
-            text-align: center;
+            line-height: 20px;
+            text-align: left;
+            margin-top: 0;
         }
 
         .suggestions ul {
-            display: inline-block;
-            text-align: left;
-            margin: 12px 0;
             padding-left: 32px;
-            list-style-type: disc;
+            margin: 12px 0;
         }
 
         .suggestions li {
             margin: 8px 0;
-            padding-left: 4px;
         }
 
         .error-code {
-            color: rgb(154, 160, 166);
             font-size: 12px;
-            margin: 32px 0 16px;
+            line-height: 16px;
+            margin: 32px 0;
         }
 
         .buttons {
-            display: inline-flex;
+            display: flex;
             gap: 24px;
+            margin-bottom: 16px;
         }
 
         button {
             height: 32px;
+            min-width: 90px;
             padding: 0 16px;
             border-radius: 4px;
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
-            min-width: 80px;
+            border: none;
         }
 
         .reload {
             background: rgb(138, 180, 248);
             color: rgb(32, 33, 36);
-            border: none;
         }
 
         .details {
@@ -135,10 +140,11 @@
 
         #errorDetails {
             display: none;
-            margin-top: 32px;
             text-align: left;
-            padding: 0 16px;
-            color: rgb(154, 160, 166);
+            padding: 0 24px;
+            margin-top: 48px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .detail-section {
@@ -149,68 +155,67 @@
             color: rgb(232, 234, 237);
             font-size: 14px;
             font-weight: 500;
-            margin: 0 0 8px;
+            margin: 0 0 8px 0;
+            line-height: 20px;
         }
 
         .detail-section p {
-            margin: 8px 0;
+            color: rgb(154, 160, 166);
             font-size: 14px;
             line-height: 20px;
-            color: rgb(154, 160, 166);
+            margin: 8px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="icon">
-            <svg viewBox="0 0 24 24">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <path d="M14 2v6h6"/>
-                <line x1="8" y1="13" x2="16" y2="13"/>
-                <line x1="8" y1="17" x2="12" y2="17"/>
-            </svg>
-        </div>
-        <h1>Die Website ist nicht erreichbar</h1>
-        <div class="error-details">
-            Die Server-IP-Adresse von <strong>w.nsce.fr</strong> wurde nicht gefunden.
-        </div>
-        <div class="suggestions">
-            Versuche Folgendes:
-            <ul>
-                <li>Verbindung prüfen</li>
-                <li><a href="#">Proxy, Firewall und DNS-Konfiguration prüfen</a></li>
-                <li><a href="#">Windows-Netzwerkdiagnose ausführen</a></li>
-            </ul>
-        </div>
-        <div class="error-code">ERR_NAME_NOT_RESOLVED</div>
-        <div class="buttons">
-            <button class="reload" onclick="window.location.reload()">Neu laden</button>
-            <button class="details" onclick="toggleDetails()">Details</button>
-        </div>
-        <div id="errorDetails">
-            <div class="detail-section">
-                <h3>Bitte überprüfe deine Internetverbindung.</h3>
-                <p>Überprüfe alle Kabel und starte alle verwendeten Router, Modems und anderen Netzwerkgeräte neu.</p>
+        <div class="content-wrapper">
+            <div class="icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <path d="M14 2v6h6"/>
+                    <line x1="8" y1="13" x2="16" y2="13"/>
+                    <line x1="8" y1="17" x2="12" y2="17"/>
+                </svg>
             </div>
-
-            <div class="detail-section">
-                <h3>Überprüfe die DNS-Einstellungen.</h3>
-                <p>Wenn du weitere Informationen dazu benötigst, kann dir dein Netzwerkadministrator weiterhelfen.</p>
+            <h1>Die Website ist nicht erreichbar</h1>
+            <div class="error-details">
+                Die Server-IP-Adresse von <strong>w.nsce.fr</strong> wurde nicht gefunden.
             </div>
-
-            <div class="detail-section">
-                <h3>Deaktiviere die Netzwerkvorhersage.</h3>
-                <p>Öffne das Chrome-Menü > Einstellungen > Erweiterte Einstellungen anzeigen und deaktiviere "Vorhersagefunktion zum schnelleren Laden von Seiten verwenden ". Falls das Problem nicht dadurch verursacht wurde, empfehlen wir, diese Option für eine verbesserte Leistung wieder zu aktivieren.</p>
+            <div class="suggestions">
+                Versuche Folgendes:
+                <ul>
+                    <li>Verbindung prüfen</li>
+                    <li><a href="#">Proxy, Firewall und DNS-Konfiguration prüfen</a></li>
+                    <li><a href="#">Windows-Netzwerkdiagnose ausführen</a></li>
+                </ul>
             </div>
-
-            <div class="detail-section">
-                <h3>Erlaube Chrome in deinen Firewall- und Virenschutzeinstellungen den Zugriff auf das Netzwerk.</h3>
-                <p>Falls das Programm schon in der Liste mit erlaubtem Netzwerkzugriff eingetragen ist, entferne es aus der Liste und füge es noch einmal hinzu.</p>
+            <div class="error-code">ERR_NAME_NOT_RESOLVED</div>
+            <div class="buttons">
+                <button class="reload" onclick="window.location.reload()">Neu laden</button>
+                <button class="details" onclick="toggleDetails()">Details</button>
             </div>
-
-            <div class="detail-section">
-                <h3>Falls du einen Proxyserver verwendest...</h3>
-                <p>Vergewissere dich, dass der Proxyserver funktioniert. Überprüfe die Proxyeinstellungen oder wende dich an deinen Netzwerkadministrator. Falls du keinen Proxyserver verwenden möchtest, deaktiviere ihn wie folgt: Gehe zum Chrome-Menü > „Einstellungen" > „Erweiterte Einstellungen anzeigen" > „Proxy-Einstellungen ändern..." > „LAN-Einstellungen" und deaktiviere die Option „Proxyserver für LAN verwenden".</p>
+            <div id="errorDetails">
+                <div class="detail-section">
+                    <h3>Bitte überprüfe deine Internetverbindung.</h3>
+                    <p>Überprüfe alle Kabel und starte alle verwendeten Router, Modems und anderen Netzwerkgeräte neu.</p>
+                </div>
+                <div class="detail-section">
+                    <h3>Überprüfe die DNS-Einstellungen.</h3>
+                    <p>Wenn du weitere Informationen dazu benötigst, kann dir dein Netzwerkadministrator weiterhelfen.</p>
+                </div>
+                <div class="detail-section">
+                    <h3>Deaktiviere die Netzwerkvorhersage.</h3>
+                    <p>Öffne das Chrome-Menü > Einstellungen > Erweiterte Einstellungen anzeigen und deaktiviere "Vorhersagefunktion zum schnelleren Laden von Seiten verwenden ". Falls das Problem nicht dadurch verursacht wurde, empfehlen wir, diese Option für eine verbesserte Leistung wieder zu aktivieren.</p>
+                </div>
+                <div class="detail-section">
+                    <h3>Erlaube Chrome in deinen Firewall- und Virenschutzeinstellungen den Zugriff auf das Netzwerk.</h3>
+                    <p>Falls das Programm schon in der Liste mit erlaubtem Netzwerkzugriff eingetragen ist, entferne es aus der Liste und füge es noch einmal hinzu.</p>
+                </div>
+                <div class="detail-section">
+                    <h3>Falls du einen Proxyserver verwendest...</h3>
+                    <p>Vergewissere dich, dass der Proxyserver funktioniert. Überprüfe die Proxyeinstellungen oder wende dich an deinen Netzwerkadministrator. Falls du keinen Proxyserver verwenden möchtest, deaktiviere ihn wie folgt: Gehe zum Chrome-Menü > „Einstellungen" > „Erweiterte Einstellungen anzeigen" > „Proxy-Einstellungen ändern..." > „LAN-Einstellungen" und deaktiviere die Option „Proxyserver für LAN verwenden".</p>
+                </div>
             </div>
         </div>
     </div>
