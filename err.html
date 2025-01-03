@@ -26,58 +26,48 @@
     </script>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: rgb(32, 33, 36);
             color: rgb(232, 234, 237);
             margin: 0;
-            padding: 0;
+            padding: 48px 0 0 48px;
             height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            line-height: 20px;
         }
 
         .container {
-            padding-top: 80px;
-            width: 100%;
             max-width: 600px;
-            text-align: center;
         }
 
         .icon {
-            display: inline-flex;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
         .icon svg {
-            width: 48px;
-            height: 48px;
+            width: 36px;
+            height: 36px;
             stroke: rgb(154, 160, 166);
-            stroke-width: 1;
             fill: none;
+            stroke-width: 1;
         }
 
         h1 {
+            color: rgb(154, 160, 166);
             font-size: 20px;
-            font-weight: 500;
-            margin: 0 0 8px;
-            padding: 0;
-            line-height: 1.4;
+            font-weight: normal;
+            margin: 0;
+            margin-bottom: 8px;
         }
 
         .error-details {
-            color: rgb(154, 160, 166);
             font-size: 14px;
-            line-height: 1.4;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
         .suggestions {
-            color: rgb(154, 160, 166);
             font-size: 14px;
-            line-height: 1.4;
-            margin: 16px 0;
-            text-align: left;
+            color: rgb(154, 160, 166);
+            margin: 0;
         }
 
         .suggestions ul {
@@ -94,15 +84,12 @@
         .error-code {
             color: rgb(154, 160, 166);
             font-size: 12px;
-            line-height: 1.4;
             margin: 32px 0 16px;
-            letter-spacing: 0.2px;
         }
 
         .buttons {
             display: flex;
-            justify-content: center;
-            gap: 12px;
+            gap: 16px;
         }
 
         button {
@@ -111,14 +98,14 @@
             border-radius: 4px;
             font-size: 13px;
             font-weight: 500;
-            line-height: 1.4;
             cursor: pointer;
-            border: none;
+            min-width: 80px;
         }
 
         .reload {
             background: rgb(138, 180, 248);
             color: rgb(32, 33, 36);
+            border: none;
         }
 
         .details {
@@ -132,35 +119,8 @@
             text-decoration: none;
         }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
         #errorDetails {
             display: none;
-            color: rgb(154, 160, 166);
-            text-align: left;
-            margin-top: 32px;
-            font-size: 14px;
-            line-height: 1.4;
-            padding: 0 16px;
-        }
-
-        .detail-section {
-            margin-bottom: 24px;
-        }
-
-        .detail-section h3 {
-            color: rgb(232, 234, 237);
-            font-size: 14px;
-            font-weight: 500;
-            margin: 0 0 8px;
-            line-height: 1.4;
-        }
-
-        .detail-section p {
-            margin: 8px 0;
-            color: rgb(154, 160, 166);
         }
     </style>
 </head>
@@ -211,7 +171,6 @@
             <div class="detail-section">
                 <h3>Falls du einen Proxyserver verwendest...</h3>
                 <p>Vergewissere dich, dass der Proxyserver funktioniert. Überprüfe die Proxyeinstellungen oder wende dich an deinen Netzwerkadministrator. Falls du keinen Proxyserver verwenden möchtest, deaktiviere ihn wie folgt: Gehe zum Chrome-Menü > „Einstellungen" > „Erweiterte Einstellungen anzeigen" > „Proxy-Einstellungen ändern..." > „LAN-Einstellungen" und deaktiviere die Option „Proxyserver für LAN verwenden".</p>
-            </div>
         </div>
     </div>
 </body>
