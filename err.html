@@ -30,17 +30,23 @@
             background-color: rgb(32, 33, 36);
             color: rgb(232, 234, 237);
             margin: 0;
-            padding: 48px 0 0 48px;
-            height: 100vh;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
             line-height: 20px;
         }
 
         .container {
-            max-width: 600px;
+            width: 100%;
+            max-width: 872px;
+            padding: 0 16px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 140px;
         }
 
         .icon {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .icon svg {
@@ -55,22 +61,30 @@
             color: rgb(154, 160, 166);
             font-size: 20px;
             font-weight: normal;
-            margin: 0;
-            margin-bottom: 8px;
+            margin: 0 0 8px 0;
         }
 
         .error-details {
             font-size: 14px;
             margin-bottom: 16px;
+            color: rgb(154, 160, 166);
+        }
+
+        .error-details strong {
+            color: rgb(232, 234, 237);
+            font-weight: normal;
         }
 
         .suggestions {
             font-size: 14px;
             color: rgb(154, 160, 166);
             margin: 0;
+            text-align: center;
         }
 
         .suggestions ul {
+            display: inline-block;
+            text-align: left;
             margin: 12px 0;
             padding-left: 32px;
             list-style-type: disc;
@@ -88,8 +102,8 @@
         }
 
         .buttons {
-            display: flex;
-            gap: 16px;
+            display: inline-flex;
+            gap: 24px;
         }
 
         button {
@@ -123,6 +137,8 @@
             display: none;
             margin-top: 32px;
             text-align: left;
+            padding: 0 16px;
+            color: rgb(154, 160, 166);
         }
 
         .detail-section {
@@ -176,18 +192,22 @@
                 <h3>Bitte überprüfe deine Internetverbindung.</h3>
                 <p>Überprüfe alle Kabel und starte alle verwendeten Router, Modems und anderen Netzwerkgeräte neu.</p>
             </div>
+
             <div class="detail-section">
                 <h3>Überprüfe die DNS-Einstellungen.</h3>
                 <p>Wenn du weitere Informationen dazu benötigst, kann dir dein Netzwerkadministrator weiterhelfen.</p>
             </div>
+
             <div class="detail-section">
                 <h3>Deaktiviere die Netzwerkvorhersage.</h3>
                 <p>Öffne das Chrome-Menü > Einstellungen > Erweiterte Einstellungen anzeigen und deaktiviere "Vorhersagefunktion zum schnelleren Laden von Seiten verwenden ". Falls das Problem nicht dadurch verursacht wurde, empfehlen wir, diese Option für eine verbesserte Leistung wieder zu aktivieren.</p>
             </div>
+
             <div class="detail-section">
                 <h3>Erlaube Chrome in deinen Firewall- und Virenschutzeinstellungen den Zugriff auf das Netzwerk.</h3>
                 <p>Falls das Programm schon in der Liste mit erlaubtem Netzwerkzugriff eingetragen ist, entferne es aus der Liste und füge es noch einmal hinzu.</p>
             </div>
+
             <div class="detail-section">
                 <h3>Falls du einen Proxyserver verwendest...</h3>
                 <p>Vergewissere dich, dass der Proxyserver funktioniert. Überprüfe die Proxyeinstellungen oder wende dich an deinen Netzwerkadministrator. Falls du keinen Proxyserver verwenden möchtest, deaktiviere ihn wie folgt: Gehe zum Chrome-Menü > „Einstellungen" > „Erweiterte Einstellungen anzeigen" > „Proxy-Einstellungen ändern..." > „LAN-Einstellungen" und deaktiviere die Option „Proxyserver für LAN verwenden".</p>
