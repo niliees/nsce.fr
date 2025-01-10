@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nsce.fr</title>
+    <link href="https://cdn.nsce.fr/main.css" rel="stylesheet">
+    <style>
+        body {
+            background: radial-gradient(circle at 50% 40%,
+                #4c1d95 0%,      /* Dunkles Violett im Zentrum */
+                #1e40af 30%,     /* Übergang zu Blau */
+                #5b21b6 45%,     /* Violett für Hämatom-Effekt */
+                #7c2d12 60%,     /* Bräunlich für den Rand */
+                #fbbf24 75%,     /* Gelblich für äußere Verfärbung */
+                #020617 100%     /* Dunkler Rand */
+            );
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen">
+    <!-- Navigation -->
+    
+
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Profilbereich -->
+        <div class="bg-gray-800 bg-opacity-50 rounded-lg shadow-xl p-6 mb-6">
+            <div class="flex flex-col items-center">
+                <img src="https://placehold.co/150x150" alt="Profilbild" class="rounded-full mb-4">
+                <h1 class="text-2xl font-bold mb-2">Niliees</h1R>
+                <p class="text-gray-400 text-center mb-4">nsce.fr = NilieeS Crystal Eye . for real</p>
+            </div>
+        </div>
+
+        <div id="watching" class="bg-gray-800 bg-opacity-50 rounded-lg shadow-xl p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">Was schau ich gerade</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center p-3 bg-gray-700 bg-opacity-50 rounded-lg">
+                    <span class="font-medium">The Lincoln Lawer</span>
+                    <a href="https://www.netflix.com/de/title/81303831" class="ml-2 text-gray-300">Netflix</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gaming Profile -->
+        <div id="gaming" class="bg-gray-800 bg-opacity-50 rounded-lg shadow-xl p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">Gaming Profile</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center p-3 bg-gray-700 bg-opacity-50 rounded-lg">
+                    <span class="font-medium">Discord:</span>
+                    <span class="ml-2 text-gray-300">niliees</span>
+                </div>
+                <div class="flex items-center p-3 bg-gray-700 bg-opacity-50 rounded-lg">
+                    <span class="font-medium">Steam:</span>
+                    <span class="ml-2 text-gray-300">氮 | niliees</span>
+                </div>
+                <div class="flex items-center p-3 bg-gray-700 bg-opacity-50 rounded-lg">
+                    <span class="font-medium">Epic Games:</span>
+                    <span class="ml-2 text-gray-300">niliees</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projekte Übersicht -->
+        <div id="projekte" class="bg-gray-800 bg-opacity-50 rounded-lg shadow-xl p-6">
+            <h2 class="text-xl font-bold mb-4">Meine Settings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Projekt 1 -->
+                <a href="#projekt1" onclick="showProject('projekt1')" class="group">
+                    <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4 transition duration-300 transform hover:scale-105">
+                        <h3 class="font-bold mb-2 group-hover:text-blue-400">Fortnite</h3>
+                        <p class="text-gray-300">Meine Fortnite Settings</p>
+                        <span class="text-blue-400 text-sm mt-2 block">Mehr erfahren →</span>
+                    </div>
+                </a>
+                <!-- Projekt 2 -->
+                <a href="#projekt2" onclick="showProject('projekt2')" class="group">
+                    <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4 transition duration-300 transform hover:scale-105">
+                        <h3 class="font-bold mb-2 group-hover:text-blue-400">Windows Autostart Manager</h3>
+                        <p class="text-gray-300">Windows Autostart Manager to keep track of your Auto start apps</p>
+                        <span class="text-blue-400 text-sm mt-2 block">Mehr erfahren →</span>
+                    </div>
+                </a>
+                <a href="#projekt3" onclick="showProject('projekt3')" class="group">
+                    <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4 transition duration-300 transform hover:scale-105">
+                        <h3 class="font-bold mb-2 group-hover:text-blue-400">Chrome Dino Cheat</h3>
+                        <p class="text-gray-300">Cheat in the Chrome Dino Game</p>
+                        <span class="text-blue-400 text-sm mt-2 block">Mehr erfahren →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projektdetailseiten -->
+    <div id="projekt1" class="hidden fixed inset-0 bg-gray-900 bg-opacity-95 overflow-y-auto">
+        <div class="container mx-auto px-4 py-8 max-w-4xl">
+            <div class="bg-gray-800 bg-opacity-50 rounded-lg shadow-xl p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Meine Fortnite Settings</h2>
+                    <button onclick="hideProject('projekt1')" class="text-gray-400 hover:text-white">
+                        × Schließen
+                    </button>
+                </div>
+                <div class="space-y-6">
+                    <img src="/api/placeholder/800/400" alt="Projekt 1 Screenshot" class="rounded-lg w-full">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Übersicht</h3>
+                        <p class="text-gray-300">Mit diesem Programm kannst du deine DNS jederzeit ändern</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Technologien</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">HTML</span>
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">CSS</span>
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Electron</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Features</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Dns auswählen die dir gefällt</li>
+                            <li>Berümte dns wie Google oder Coudfare</li>
+                            <li>jede Dns hat seine eigene beschreibng wofür die am besten ist</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Links</h3>
+                        <div class="space-x-4">
+                            <a href="https://www.dropbox.com/scl/fi/dd0r58oh3w65pfhddlzky/dns-manager-niliees.xyz.zip?rlkey=9c7gv39mgc0vxitw2u8amlhiv&st=wzifdqjn&dl=1" class="text-blue-400 hover:underline">Download</a>
+                            <a href="https://database.niliees.xyz/data/changelog/dns-manager.html" class="text-blue-400 hover:underline">Changelog</a>
+                            <a href="https://help.niliees.xyz/dns-manager.html" class="text-blue-400 hover:underline">Help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projekt2" class="hidden fixed inset-0 bg-gray-900 bg-opacity-95 overflow-y-auto">
+        <div class="container mx-auto px-4 py-8 max-w-4xl">
+            <div class="bg-gray-800 bg-opacity-50 rounded-lg shadow-xl p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Projekt 2: Windows Autostart Manager</h2>
+                    <button onclick="hideProject('projekt2')" class="text-gray-400 hover:text-white">
+                        × Schließen
+                    </button>
+                </div>
+                <div class="space-y-6">
+                    <img src="/api/placeholder/800/400" alt="Projekt 2 Screenshot" class="rounded-lg w-full">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Übersicht</h3>
+                        <p class="text-gray-300">Mit diesem Programm kannst du deine Auto start apps verwalten</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Technologien</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Html</span>
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">CSS</span>
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Electron</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Features</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Du kannst alle deine Auto start apps verwalten</li>
+                            <li>Sag welche apps beim Pc start sich selber starten sollen</li>
+                            <li>Sag welche apps beim Pc nicht starten sollen</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Links</h3>
+                        <div class="space-x-4">
+                            <a href="#" class="text-blue-400 hover:underline">Live Demo</a>
+                            <a href="#" class="text-blue-400 hover:underline">GitHub Repository</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projekt3" class="hidden fixed inset-0 bg-gray-900 bg-opacity-95 overflow-y-auto">
+        <div class="container mx-auto px-4 py-8 max-w-4xl">
+            <div class="bg-gray-800 bg-opacity-50 rounded-lg shadow-xl p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Projekt 3: Chrome Dino Cheat</h2>
+                    <button onclick="hideProject('projekt3')" class="text-gray-400 hover:text-white">
+                        × Schließen
+                    </button>
+                </div>
+                <div class="space-y-6">
+                    <img src="/api/placeholder/800/400" alt="Projekt 1 Screenshot" class="rounded-lg w-full">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Übersicht</h3>
+                        <p class="text-gray-300">Mit diesem Programm kannst du in dem Chrome Dino spiel cheaten</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Technologien</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">JavaScript</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Features</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>unsterblichkeit</li>
+                            <li>schnellichtkeit</li>
+                            <li>Gamebreaking Schnelligkeit</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Links</h3>
+                        <div class="space-x-4">
+                            <a  class="text-blue-400 hover:underline">Unsterbichkeit: Runner.instance_.gameOver=function(){}</a>
+                            <a  class="text-blue-400 hover:underline">Schnelligkeit: Runner.instance_.setSpeed(100)</a>
+                            <a  class="text-blue-400 hover:underline">Schnelligkeit: Runner.instance_.setSpeed(30000)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showProject(projectId) {
+            document.getElementById(projectId).classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideProject(projectId) {
+            document.getElementById(projectId).classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
