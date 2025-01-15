@@ -166,10 +166,6 @@
     </style>
     </head>
     <body class="text-white">
-        <!-- Theme Toggle -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <i class="fas fa-moon"></i>
-        </button>
     
         <!-- Mobile Navigation -->
         <nav class="mobile-nav">
@@ -455,21 +451,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Language Toggle
-        function toggleLanguage(lang) {
-            const buttons = document.querySelectorAll('[onclick^="toggleLanguage"]');
-            buttons.forEach(btn => {
-                btn.classList.remove('active', 'bg-blue-600');
-                btn.classList.add('bg-gray-600');
-            });
-            
-            const activeBtn = document.querySelector(`[onclick*="${lang}"]`);
-            activeBtn.classList.add('active', 'bg-blue-600');
-            activeBtn.classList.remove('bg-gray-600');
-
-            // Hier könnte die Übersetzungslogik implementiert werden
-            // translateContent(lang);
-        }
 
         // Lazy Loading für Bilder
         document.addEventListener("DOMContentLoaded", () => {
