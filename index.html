@@ -473,7 +473,7 @@ async function fetchFortniteStats() {
     try {
         const response = await fetch(`https://fortnite-api.com/v2/stats/br/v2?name=byNiliees`, {
             headers: {
-                'Authorization': '74da941e-26db-4b7f-9100-5eb79bb83071'
+                'Authorization': 'dein-api-key-hier'  // HIER deinen API-Key einfügen
             }
         });
 
@@ -482,38 +482,68 @@ async function fetchFortniteStats() {
         }
 
         const data = await response.json();
+        console.log('API Response:', data); // Debug-Ausgabe
+
+        // Sicherheitscheck für die Datenstruktur
+        if (!data.data || !data.data.stats) {
+            throw new Error('Keine Statistiken verfügbar');
+        }
+
         const stats = data.data;
 
-        // Update Overall Stats
-        document.getElementById('totalWins').textContent = stats.stats.all.overall.wins.toLocaleString();
-        document.getElementById('winRate').textContent = `${(stats.stats.all.overall.winRate).toFixed(2)}% Win Rate`;
-        document.getElementById('kdRatio').textContent = stats.stats.all.overall.kd.toFixed(2);
-        document.getElementById('totalKills').textContent = `${stats.stats.all.overall.kills.toLocaleString()} Kills`;
-        document.getElementById('totalMatches').textContent = stats.stats.all.overall.matches.toLocaleString();
-        document.getElementById('avgPlacement').textContent = `Avg Top: ${stats.stats.all.overall.top5.toLocaleString()}`;
+        // Update Overall Stats - mit Sicherheitschecks
+        if (stats.stats.all?.overall) {
+            document.getElementById('totalWins').textContent = (stats.stats.all.overall.wins || 0).toLocaleString();
+            document.getElementById('winRate').textContent = `${(stats.stats.all.overall.winRate || 0).toFixed(2)}% Win Rate`;
+            document.getElementById('kdRatio').textContent = (stats.stats.all.overall.kd || 0).toFixed(2);
+            document.getElementById('totalKills').textContent = `${(stats.stats.all.overall.kills || 0).toLocaleString()} Kills`;
+            document.getElementById('totalMatches').textContent = (stats.stats.all.overall.matches || 0).toLocaleString();
+            document.getElementById('avgPlacement').textContent = `Avg Top: ${(stats.stats.all.overall.top5 || 0).toLocaleString()}`;
+        }
 
-        // Update Solo Stats
-        document.getElementById('soloWins').textContent = stats.stats.solo.overall.wins.toLocaleString();
-        document.getElementById('soloKD').textContent = stats.stats.solo.overall.kd.toFixed(2);
-        document.getElementById('soloMatches').textContent = stats.stats.solo.overall.matches.toLocaleString();
-        document.getElementById('soloWinRate').textContent = `${(stats.stats.solo.overall.winRate).toFixed(2)}%`;
+        // Update Solo Stats - mit Sicherheitschecks
+        if (stats.stats.solo?.overall) {
+            document.getElementById('soloWins').textContent = (stats.stats.solo.overall.wins || 0).toLocaleString();
+            document.getElementById('soloKD').textContent = (stats.stats.solo.overall.kd || 0).toFixed(2);
+            document.getElementById('soloMatches').textContent = (stats.stats.solo.overall.matches || 0).toLocaleString();
+            document.getElementById('soloWinRate').textContent = `${(stats.stats.solo.overall.winRate || 0).toFixed(2)}%`;
+        } else {
+            // Wenn keine Solo-Stats verfügbar sind
+            ['soloWins', 'soloKD', 'soloMatches', 'soloWinRate'].forEach(id => {
+                document.getElementById(id).textContent = '0';
+            });
+        }
 
-        // Update Duo Stats
-        document.getElementById('duoWins').textContent = stats.stats.duo.overall.wins.toLocaleString();
-        document.getElementById('duoKD').textContent = stats.stats.duo.overall.kd.toFixed(2);
-        document.getElementById('duoMatches').textContent = stats.stats.duo.overall.matches.toLocaleString();
-        document.getElementById('duoWinRate').textContent = `${(stats.stats.duo.overall.winRate).toFixed(2)}%`;
+        // Update Duo Stats - mit Sicherheitschecks
+        if (stats.stats.duo?.overall) {
+            document.getElementById('duoWins').textContent = (stats.stats.duo.overall.wins || 0).toLocaleString();
+            document.getElementById('duoKD').textContent = (stats.stats.duo.overall.kd || 0).toFixed(2);
+            document.getElementById('duoMatches').textContent = (stats.stats.duo.overall.matches || 0).toLocaleString();
+            document.getElementById('duoWinRate').textContent = `${(stats.stats.duo.overall.winRate || 0).toFixed(2)}%`;
+        } else {
+            // Wenn keine Duo-Stats verfügbar sind
+            ['duoWins', 'duoKD', 'duoMatches', 'duoWinRate'].forEach(id => {
+                document.getElementById(id).textContent = '0';
+            });
+        }
 
-        // Update Squad Stats
-        document.getElementById('squadWins').textContent = stats.stats.squad.overall.wins.toLocaleString();
-        document.getElementById('squadKD').textContent = stats.stats.squad.overall.kd.toFixed(2);
-        document.getElementById('squadMatches').textContent = stats.stats.squad.overall.matches.toLocaleString();
-        document.getElementById('squadWinRate').textContent = `${(stats.stats.squad.overall.winRate).toFixed(2)}%`;
+        // Update Squad Stats - mit Sicherheitschecks
+        if (stats.stats.squad?.overall) {
+            document.getElementById('squadWins').textContent = (stats.stats.squad.overall.wins || 0).toLocaleString();
+            document.getElementById('squadKD').textContent = (stats.stats.squad.overall.kd || 0).toFixed(2);
+            document.getElementById('squadMatches').textContent = (stats.stats.squad.overall.matches || 0).toLocaleString();
+            document.getElementById('squadWinRate').textContent = `${(stats.stats.squad.overall.winRate || 0).toFixed(2)}%`;
+        } else {
+            // Wenn keine Squad-Stats verfügbar sind
+            ['squadWins', 'squadKD', 'squadMatches', 'squadWinRate'].forEach(id => {
+                document.getElementById(id).textContent = '0';
+            });
+        }
 
-        // Update Battlepass Progress (if available)
+        // Update Battlepass Progress (falls verfügbar)
         if (stats.battlePass) {
-            document.getElementById('battlepassLevel').textContent = `Level ${stats.battlePass.level}`;
-            document.getElementById('battlepassProgress').style.width = `${stats.battlePass.progress}%`;
+            document.getElementById('battlepassLevel').textContent = `Level ${stats.battlePass.level || 0}`;
+            document.getElementById('battlepassProgress').style.width = `${stats.battlePass.progress || 0}%`;
         }
 
         // Update Last Updated Time
@@ -523,6 +553,7 @@ async function fetchFortniteStats() {
         // Show stats content
         document.getElementById('statsContent').classList.remove('hidden');
     } catch (error) {
+        console.error('Error fetching stats:', error); // Debug-Ausgabe
         showError(error.message);
     } finally {
         document.getElementById('statsLoading').classList.add('hidden');
