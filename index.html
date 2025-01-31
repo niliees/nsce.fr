@@ -163,6 +163,21 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+         @media screen and (max-height: 500px) and (orientation: landscape) {
+            body::before {
+                content: "Bitte drehe dein Handy in die vertikale Position für die beste Ansicht ";
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0, 0, 0, 0.9);
+                color: white;
+                padding: 20px;
+                text-align: center;
+                width: 100%;
+                z-index: 1000;
+            }
+        }
     </style>
     </head>
     <body class="text-white">
